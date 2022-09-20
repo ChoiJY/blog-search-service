@@ -1,0 +1,5 @@
+### 랭킹 조회 API
+GET http://localhost:8081/v1/statistics/blog-search/top10
+
+### 검색 기록 count 증가 API
+PUT http://localhost:8081/v1/statistics/blog-search/카카오
