@@ -1,0 +1,2 @@
+### 블로그 검색 API
+GET localhost:8080/v1/search?keyword=카카오&page=1&page-size=10&sort=ACCURACY

@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+spring:
+  web:
+    resources:
+      add-mappings: false
+  mvc:
+    throw-exception-if-no-handler-found: true
+  datasource:
+    hikari:
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+app:
+  auth:
+    kakao:
+      key: KakaoAK 23a285ecb4cd557e416d2a31750d8c0f
+    naver:
+      client-id: VJOeKtsAeC8AkNtRBcPB
+      client-key: Eq2whJOKSM
