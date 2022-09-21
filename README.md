@@ -42,7 +42,7 @@ Search-Service API 기본 정보 (localhost:8080)
 1. 블로그 검색 조회
 - Request Example
 ```
-http://localhost:8080/v1/search?keyword=카카오&page=1&page-size=10&sort=ACCURACY
+GET http://localhost:8080/v1/search?keyword=카카오&page=1&page-size=10&sort=ACCURACY
 ```
 - Response Example
 ```
@@ -171,7 +171,11 @@ Response code: 200; Time: 1581ms; Content length: 0 bytes
 각 Service 아래 jar파일을 같이 저장해두었습니다. 두 서비스의 jar file을 아래와 같이 기동한 후 테스트하실 수 있습니다.  
 API 테스트의 경우, Intellij를 사용하시고 있으시다면 각 프로젝트 내 http 파일을 이용해서 API를 편하게 호출하실 수 있습니다.
 
-search-service의 경우, statistics-service가 올라가 있어야 정상적으로 모든 기능이 작동하게 됩니다.
+search-service의 경우, statistics-service가 올라가 있어야 정상적으로 모든 기능이 작동하게 됩니다.  
+
+jar download link  
+https://github.com/ChoiJY/blog-search-service/raw/main/blog-service/search-service-0.0.1-SNAPSHOT.jar  
+https://github.com/ChoiJY/blog-search-service/raw/main/statistics-service/statistics-service-0.0.1-SNAPSHOT.jar  
 ```
 java -jar statistics-service-0.0.1-SNAPSHOT.jar
 java -jar search-service-0.0.1-SNAPSHOT.jar
