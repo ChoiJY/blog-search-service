@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * Description : 인기 검색어 관련 controller class.
- *
+ * <p>
  * Created by jychoi on 2022/09/17.
  */
 @RequiredArgsConstructor
@@ -21,25 +21,29 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/v1/statistics")
 public class StatisticsController {
 
-	private final StatisticsService statisticsService;
+    private final StatisticsService statisticsService;
 
-	/**
-	 * 인기 검색어 Top 10 조회.
-	 * @return SearchHistoryResponse
-	 */
-	@GetMapping("/blog-search/top10")
-	public ResponseEntity<SearchHistoryResponse> getBlogSearchTop10() {
-		return ResponseEntity.ok().body(new SearchHistoryResponse(statisticsService.getSearchHistoryTop10()));
-	}
+    /**
+     * 인기 검색어 Top 10 조회.
+     *
+     * @return SearchHistoryResponse
+     */
+    @GetMapping("/blog-search/top10")
+    public ResponseEntity<SearchHistoryResponse> getBlogSearchTop10() {
+        return ResponseEntity.ok()
+                .body(new SearchHistoryResponse(statisticsService.getSearchHistoryTop10()));
+    }
 
-	/**
-	 * 검색 키워드 기록 count 업데이트.
-	 * @param searchKeyword 검색 키워드
-	 * @return Void
-	 */
-	@PutMapping("/blog-search/{search-keyword}")
-	public ResponseEntity<Void> updateSearchHistory(@PathVariable(name = "search-keyword") String searchKeyword) {
-		statisticsService.increaseSearchHistoryCount(searchKeyword);
-		return ResponseEntity.ok().build();
-	}
+    /**
+     * 검색 키워드 기록 count 업데이트.
+     *
+     * @param searchKeyword 검색 키워드
+     * @return Void
+     */
+    @PutMapping("/blog-search/{search-keyword}")
+    public ResponseEntity<Void> updateSearchHistory(
+            @PathVariable(name = "search-keyword") String searchKeyword) {
+        statisticsService.increaseSearchHistoryCount(searchKeyword);
+        return ResponseEntity.ok().build();
+    }
 }

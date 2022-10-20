@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * Description : Redis Configuration class.
- *
+ * <p>
  * Created by jychoi on 2022/09/17.
  */
 @RequiredArgsConstructor
@@ -20,25 +20,27 @@ import lombok.RequiredArgsConstructor;
 @EnableRedisRepositories
 public class RedisConfiguration {
 
-	private final RedisProperties redisProperties;
+    private final RedisProperties redisProperties;
 
-	/**
-	 * Redis connection factory bean.
-	 * @return LettuceConnectionFactory
-	 */
-	@Bean
-	public RedisConnectionFactory redisConnectionFactory() {
-		return new LettuceConnectionFactory(redisProperties.getHost(), redisProperties.getPort());
-	}
+    /**
+     * Redis connection factory bean.
+     *
+     * @return LettuceConnectionFactory
+     */
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory(redisProperties.getHost(), redisProperties.getPort());
+    }
 
-	/**
-	 * RedisTemplate bean.
-	 * @return RedisTemplate
-	 */
-	@Bean
-	public RedisTemplate<?, ?> redisTemplate() {
-		RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
-		redisTemplate.setConnectionFactory(redisConnectionFactory());
-		return redisTemplate;
-	}
+    /**
+     * RedisTemplate bean.
+     *
+     * @return RedisTemplate
+     */
+    @Bean
+    public RedisTemplate<?, ?> redisTemplate() {
+        RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(redisConnectionFactory());
+        return redisTemplate;
+    }
 }

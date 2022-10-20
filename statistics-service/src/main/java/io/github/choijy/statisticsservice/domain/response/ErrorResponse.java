@@ -6,16 +6,16 @@ import lombok.Getter;
 
 /**
  * Description : Error Response class.
- *
+ * <p>
  * Created by jychoi on 2022/09/18.
  */
 @Getter
 public class ErrorResponse extends Response {
 
-	private final String message;
+    private final String message;
 
-	public ErrorResponse(HttpStatus httpStatus, String message) {
-		super(httpStatus.value());
-		this.message = message;
-	}
+    public ErrorResponse(HttpStatus httpStatus, String message) {
+        super(httpStatus.value());
+        this.message = message;
+    }
 }
